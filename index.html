@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szomszédkosár – rendelj a szomszédaiddal, fizess kevesebb importdíjat</title>
+  <meta name="description" content="Rendelj a szomszédaiddal: a közös terméktípusok után csak egyszer fizettek importdíjat. Iratkozz fel a várólistára, és hozd el a próbaüzemet a kerületedbe.">
+  <meta name="theme-color" content="#0d3b2a">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" hreflang="hu" href="./">
+  <link rel="alternate" hreflang="en" href="en/">
+  <meta property="og:title" content="Szomszédkosár – rendelj a szomszédaiddal">
+  <meta property="og:description" content="A közös terméktípusok után csak egyszer fizettek importdíjat. Iratkozz fel a várólistára.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="hu_HU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></symbol>
+    <symbol id="i-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="m8 8 1.2 1.2L11.5 7M8 13.5l1.2 1.2 2.3-2.2M14 8h2.5M14 13.5h2.5M8 18h8.5"/></symbol>
+    <symbol id="i-parcel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8M7.5 5.5l9 5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2M6 6l9-3 1.5 3"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M15 14.6c3 .1 6 1.9 6 5.4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7.5v.01"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4a2 2 0 0 0-3.4 0Z"/><path d="M12 9.5v4M12 17v.01"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8H7Z"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.6 6.6C4.3 8.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.9-1"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12Z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+    <!-- Basket item types -->
+    <symbol id="t-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 3 6l2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0Z"/></symbol>
+    <symbol id="t-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+    <symbol id="t-mug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11v7a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V8Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3v2M11 3v2"/></symbol>
+    <symbol id="t-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></symbol>
+    <symbol id="t-lamp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3 8H5l3-8Z"/><path d="M12 11v8M8 21h8"/></symbol>
+    <symbol id="t-ball" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9.5c5 2 12 2 17 0M5 17c4-2.5 10-2.5 14 0"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 36 36"><rect width="36" height="36" rx="11" fill="#1f7a57"/><path d="M8.5 16.5 18 9.2l9.5 7.3" fill="none" stroke="#c8f169" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="11.5" y="17" width="13" height="10.5" rx="2.2" fill="#c8f169"/><path d="M18 17v4.6" stroke="#1f7a57" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Ugrás a tartalomra</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="./" aria-label="Szomszédkosár – kezdőlap">
+      <svg aria-hidden="true"><use href="#logo-mark"/></svg>
+      Szomszédkosár
+    </a>
+    <nav class="nav" aria-label="Fő navigáció">
+      <a href="#hogyan">Hogyan működik</a>
+      <a href="#pelda">Spórolás</a>
+      <a href="#arak">Árak</a>
+      <a href="#biztonsag">Biztonság</a>
+      <a href="#gyik">GYIK</a>
+    </nav>
+    <div class="lang" aria-label="Nyelv">
+      <span aria-current="true" lang="hu">HU</span>
+      <a href="en/" lang="en" hreflang="en">EN</a>
+    </div>
+    <a class="btn btn-small header-cta" href="#varolista">Feliratkozom</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="pill"><span class="dot" aria-hidden="true"></span>Hamarosan Budapesten · Temu-rendelésekhez</p>
+        <h1>Rendelj a <span class="mark">szomszédaiddal</span>.</h1>
+        <p class="lead">A közös terméktípusok után csak egyszer fizettek importdíjat.</p>
+        <p class="sub">Egy szomszéd lead egy közös rendelést, a többiek csatlakoznak hozzá. Az app összefésüli a kosarakat, kiszámolja mindenki igazságos részét, és segít az átadásban.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#varolista">Feliratkozom a várólistára <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#hogyan">Hogyan működik?</a>
+        </div>
+        <ul class="proof">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Szervezőknek ingyenes</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Átvételkor fizetsz</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>A címed privát marad</li>
+        </ul>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 470" role="presentation">
+          <circle cx="262" cy="250" r="205" fill="#ecf8f1"/>
+          <circle class="spin-slow" cx="262" cy="250" r="232" fill="none" stroke="#bfe3cd" stroke-width="2" stroke-dasharray="3 12"/>
+          <ellipse cx="262" cy="418" rx="236" ry="16" fill="#dcebe2"/>
+
+          <!-- Middle building (neighbour C) -->
+          <rect x="218" y="132" width="96" height="284" rx="8" fill="#dceefb" stroke="#10231c" stroke-width="2.5"/>
+          <g fill="#ffffff" stroke="#10231c" stroke-width="1.5">
+            <rect x="234" y="150" width="24" height="20" rx="3"/><rect x="274" y="150" width="24" height="20" rx="3"/>
+            <rect x="234" y="184" width="24" height="20" rx="3"/><rect class="win-blink d2" x="274" y="184" width="24" height="20" rx="3"/>
+            <rect class="win-blink d4" x="234" y="218" width="24" height="20" rx="3"/><rect x="274" y="218" width="24" height="20" rx="3"/>
+            <rect x="234" y="252" width="24" height="20" rx="3"/><rect x="274" y="252" width="24" height="20" rx="3"/>
+            <rect x="234" y="286" width="24" height="20" rx="3"/><rect x="274" y="286" width="24" height="20" rx="3"/>
+          </g>
+
+          <!-- Left block of flats (neighbour A) -->
+          <rect x="34" y="146" width="162" height="14" rx="4" fill="#10231c"/>
+          <rect x="40" y="156" width="150" height="260" rx="6" fill="#ffffff" stroke="#10231c" stroke-width="2.5"/>
+          <g fill="#e3ece6" stroke="#10231c" stroke-width="1.5">
+            <rect x="54" y="172" width="22" height="20" rx="3"/><rect class="win-blink" x="86" y="172" width="22" height="20" rx="3"/><rect x="118" y="172" width="22" height="20" rx="3"/><rect x="150" y="172" width="22" height="20" rx="3"/>
+            <rect x="54" y="204" width="22" height="20" rx="3"/><rect x="86" y="204" width="22" height="20" rx="3"/><rect class="win-blink d3" x="118" y="204" width="22" height="20" rx="3"/><rect x="150" y="204" width="22" height="20" rx="3"/>
+            <rect class="win-blink d2" x="54" y="236" width="22" height="20" rx="3"/><rect x="86" y="236" width="22" height="20" rx="3"/><rect x="118" y="236" width="22" height="20" rx="3"/><rect x="150" y="236" width="22" height="20" rx="3"/>
+            <rect x="54" y="268" width="22" height="20" rx="3"/><rect x="86" y="268" width="22" height="20" rx="3"/><rect x="118" y="268" width="22" height="20" rx="3"/><rect class="win-blink d4" x="150" y="268" width="22" height="20" rx="3"/>
+            <rect x="54" y="300" width="22" height="20" rx="3"/><rect class="win-blink d3" x="86" y="300" width="22" height="20" rx="3"/><rect x="118" y="300" width="22" height="20" rx="3"/><rect x="150" y="300" width="22" height="20" rx="3"/>
+            <rect x="54" y="332" width="22" height="20" rx="3"/><rect x="86" y="332" width="22" height="20" rx="3"/><rect x="118" y="332" width="22" height="20" rx="3"/><rect x="150" y="332" width="22" height="20" rx="3"/>
+          </g>
+          <rect x="98" y="372" width="34" height="44" rx="4" fill="#10231c"/>
+          <rect x="84" y="364" width="62" height="8" rx="3" fill="#1f7a57"/>
+
+          <!-- Right house (neighbour B) -->
+          <rect x="362" y="290" width="112" height="126" rx="4" fill="#e6e1ff" stroke="#10231c" stroke-width="2.5"/>
+          <path d="M350 298 418 238l68 60Z" fill="#5b4bc4" stroke="#10231c" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="406" y="358" width="26" height="58" rx="3" fill="#10231c"/>
+          <rect class="win-blink d3" x="376" y="312" width="24" height="22" rx="3" fill="#c8f169" stroke="#10231c" stroke-width="1.5"/>
+          <rect x="440" y="312" width="22" height="22" rx="3" fill="#ffffff" stroke="#10231c" stroke-width="1.5"/>
+          <!-- Tree -->
+          <rect x="492" y="360" width="6" height="56" rx="3" fill="#10231c"/>
+          <circle cx="495" cy="350" r="22" fill="#1f7a57"/>
+
+          <!-- Flow paths -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M128 124 C 190 140, 230 250, 258 330" stroke="#ffffff" stroke-width="7"/>
+            <path d="M402 222 C 360 236, 300 270, 282 330" stroke="#ffffff" stroke-width="7"/>
+            <path d="M268 126 C 268 200, 270 260, 270 326" stroke="#ffffff" stroke-width="7"/>
+            <path class="flow" d="M128 124 C 190 140, 230 250, 258 330" stroke="#1f7a57" stroke-width="3"/>
+            <path class="flow" d="M402 222 C 360 236, 300 270, 282 330" stroke="#5b4bc4" stroke-width="3"/>
+            <path class="flow" d="M268 126 C 268 200, 270 260, 270 326" stroke="#2f6f9f" stroke-width="3"/>
+          </g>
+
+          <!-- Travelling mini parcels -->
+          <g class="parcel-travel pt-1"><rect x="-9" y="-8" width="18" height="16" rx="3" fill="#c9a27a" stroke="#10231c" stroke-width="1.8"/><path d="M0 -8v16" stroke="#10231c" stroke-width="1.5"/></g>
+          <g class="parcel-travel pt-2 t2"><rect x="-9" y="-8" width="18" height="16" rx="3" fill="#c9a27a" stroke="#10231c" stroke-width="1.8"/><path d="M0 -8v16" stroke="#10231c" stroke-width="1.5"/></g>
+          <g class="parcel-travel pt-3 t3"><rect x="-9" y="-8" width="18" height="16" rx="3" fill="#c9a27a" stroke="#10231c" stroke-width="1.8"/><path d="M0 -8v16" stroke="#10231c" stroke-width="1.5"/></g>
+
+          <!-- Shared parcel -->
+          <g class="box-bounce">
+            <path d="M214 338 198 318h58l14 20Z" fill="#dcc0a0" stroke="#10231c" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M326 338 342 318h-58l-14 20Z" fill="#dcc0a0" stroke="#10231c" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="214" y="336" width="112" height="80" rx="7" fill="#c9a27a" stroke="#10231c" stroke-width="2.5"/>
+            <rect x="261" y="336" width="18" height="80" fill="#e7cfa9"/>
+            <rect x="226" y="364" width="30" height="34" rx="4" fill="#ffffff" stroke="#10231c" stroke-width="1.5"/>
+            <path d="M232 374h18M232 381h18M232 388h11" stroke="#10231c" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="304" cy="378" r="13" fill="#c8f169" stroke="#10231c" stroke-width="1.8"/>
+            <path d="m298 378 4 4 8-8" fill="none" stroke="#10231c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+
+          <!-- Neighbour pins -->
+          <g transform="translate(118 132)"><g class="pin-bob">
+            <path d="M0 0C-9-11-16-17-16-27a16 16 0 0 1 32 0C16-17 9-11 0 0Z" fill="#c8f169" stroke="#10231c" stroke-width="2.2"/>
+            <text x="0" y="-21" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" fill="#10231c">A</text>
+          </g></g>
+          <g transform="translate(266 128)"><g class="pin-bob p3">
+            <path d="M0 0C-9-11-16-17-16-27a16 16 0 0 1 32 0C16-17 9-11 0 0Z" fill="#dceefb" stroke="#10231c" stroke-width="2.2"/>
+            <text x="0" y="-21" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" fill="#10231c">C</text>
+          </g></g>
+          <g transform="translate(418 226)"><g class="pin-bob p2">
+            <path d="M0 0C-9-11-16-17-16-27a16 16 0 0 1 32 0C16-17 9-11 0 0Z" fill="#e6e1ff" stroke="#10231c" stroke-width="2.2"/>
+            <text x="0" y="-21" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" fill="#10231c">B</text>
+          </g></g>
+
+          <!-- Sparkles -->
+          <g fill="#1f7a57">
+            <path d="M462 120l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" opacity=".55"/>
+            <path d="M40 92l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" opacity=".4"/>
+          </g>
+        </svg>
+
+        <div class="float-card fc-1">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
+          <span><strong>Akár 47%&#8209;kal kevesebb</strong>importdíj szervezőként</span>
+        </div>
+        <div class="float-card fc-2">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <span><strong>Átvételkor fizetsz</strong>a szervezőnek, személyesen</span>
+        </div>
+        <div class="float-card fc-3">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-people"/></svg></span>
+          <span><strong>3 szomszéd, 1 rendelés</strong>a közös tételek egyszer fizetve</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="section problem" id="problema" aria-labelledby="problema-cim">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">A probléma</p>
+        <h2 id="problema-cim">November 1-től minden különböző terméktípus után kb. 2300&nbsp;Ft importdíj.</h2>
+        <p>2026. július 1. óta minden EU-n kívülről érkező Temu-rendelésnél terméktípusonként vámot kell fizetni, november 1-től pedig kezelési díj is jár mellé. Minél vegyesebb a kosarad, annál többet fizetsz.</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="panel-dark reveal">
+          <div class="formula" aria-label="3 euró vám, plusz 2 euró kezelési díj, plusz 27% ÁFA, terméktípusonként nagyjából 2300 forint">
+            <span class="chip-dark"><strong>3&nbsp;€</strong>vám</span>
+            <span class="op" aria-hidden="true">+</span>
+            <span class="chip-dark"><strong>2&nbsp;€</strong>kezelési díj</span>
+            <span class="op" aria-hidden="true">+</span>
+            <span class="chip-dark"><strong>27%</strong>ÁFA</span>
+            <span class="op" aria-hidden="true">≈</span>
+            <span class="chip-dark result"><strong>2300&nbsp;Ft</strong>terméktípusonként</span>
+          </div>
+
+          <ul class="basket" aria-label="Egy hatféle terméket tartalmazó kosár" role="list">
+            <li class="item"><svg aria-hidden="true"><use href="#t-shirt"/></svg><span class="tag">2300&nbsp;Ft</span><span class="sr-only">Gyerekruha</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-phone"/></svg><span class="tag">2300&nbsp;Ft</span><span class="sr-only">Telefontok</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-mug"/></svg><span class="tag">2300&nbsp;Ft</span><span class="sr-only">Konyhai eszköz</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-head"/></svg><span class="tag">2300&nbsp;Ft</span><span class="sr-only">Fejhallgató</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-lamp"/></svg><span class="tag">2300&nbsp;Ft</span><span class="sr-only">Lámpa</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-ball"/></svg><span class="tag">2300&nbsp;Ft</span><span class="sr-only">Játék</span></li>
+          </ul>
+          <div class="basket-total">
+            <span>Egy 6 terméktípusos kosár importdíja</span>
+            <strong>kb. 13&nbsp;800&nbsp;Ft</strong>
+          </div>
+        </div>
+
+        <div class="problem-side">
+          <div class="panel-dark stat-card reveal">
+            <p class="big">5250&nbsp;Ft</p>
+            <h3>Csak egy apróság kellene?</h3>
+            <p>A Temu minimális rendelési értéke 5250&nbsp;Ft, így egyetlen kis tételért is ki kell egészítened a kosarad.</p>
+          </div>
+          <div class="panel-dark stat-card reveal">
+            <h3>Mikortól?</h3>
+            <ol class="timeline">
+              <li><span><strong>2026. július 1.</strong>3&nbsp;€ vám terméktípusonként, ÁFA-val</span></li>
+              <li class="now"><span><strong>2026. november 1.</strong>+2&nbsp;€ kezelési díj terméktípusonként, ÁFA-val – épp a karácsonyi szezon előtt</span></li>
+              <li><span><strong>2028. július 1.</strong>a 3&nbsp;€-s vám átmeneti szabálya eddig tart; a kezelési díj utána is megmarad</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" id="hogyan" aria-labelledby="hogyan-cim">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Hogyan működik</p>
+        <h2 id="hogyan-cim">Öt lépés a belépéstől az átvételig.</h2>
+        <p>A szervező egyetlen, valódi Temu-rendelést ad le. Te csak hozzáteszed a kosarad, és átveszed a csomagod.</p>
+      </div>
+
+      <ol class="steps reveal-stagger">
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-user"/></svg></div>
+          <h3>Lépj be Google-fiókkal</h3>
+          <p>Add meg a kerületed. Nincs jelszó, és a pontos címedet senki sem látja.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <h3>Keress rendelést a közeledben</h3>
+          <p>Látod a közeli szervezőket, hány terméktípusotok közös, mennyit előlegeznek meg neked, és a becsült spórolásodat a díjak után.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-cart"/></svg></div>
+          <h3>Add hozzá a kosarad</h3>
+          <p>Tölts fel egy képernyőképet a Temu-kosaradról, vagy másold be a termékek linkjét. Az app beolvassa a tételeket, te jóváhagyod.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-list"/></svg></div>
+          <h3>A szervező rendel</h3>
+          <p>Az app egy listába fésüli mindenki tételeit. A szervező egyetlen rendelést ad le, az app pedig a valódi fizetés alapján kiszámolja mindenki részét.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-parcel"/></svg></div>
+          <h3>Találkozz, fizess, vedd át</h3>
+          <p>Nyilvános helyen vagy csomagautomatánál átveszed a tételeidet, kifizeted a szervezőnek, és az átvételi kóddal megerősíted.</p>
+        </li>
+      </ol>
+
+      <div class="note-band reveal">
+        <svg aria-hidden="true"><use href="#i-shield"/></svg>
+        <p><strong>Az app soha nem kezeli az áruk árát.</strong> Átvételkor fizetsz a szervezőnek, így senki sem fizet olyasmiért, amit nem kapott meg.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAVINGS EXAMPLE ============ -->
+  <section class="section savings" id="pelda" aria-labelledby="pelda-cim">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Példa a spórolásra</p>
+        <h2 id="pelda-cim">Szervezőként akár 47%&#8209;kal kevesebb importdíj.</h2>
+        <p>A közös terméktípusok után csak egyszer fizettek. Nézd meg egy háromfős példán, a 2026. november 1-től érvényes importdíjakkal.</p>
+      </div>
+
+      <div class="savings-grid">
+        <div class="reveal">
+          <div class="scenario">
+            <div class="person"><span class="avatar av-a" aria-hidden="true">A</span><div><strong>Anna</strong><span>6 terméktípus</span></div><span class="role">Szervező</span></div>
+            <div class="person"><span class="avatar av-b" aria-hidden="true">B</span><div><strong>Bence</strong><span>4 terméktípus, ebből 2 közös Annával</span></div></div>
+            <div class="person"><span class="avatar av-c" aria-hidden="true">C</span><div><strong>Csilla</strong><span>3 terméktípus, ebből 2 közös Annával</span></div></div>
+          </div>
+          <div class="totals">
+            <div class="was"><span>Külön-külön</span><strong>29&nbsp;965&nbsp;Ft</strong></div>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+            <div class="now"><span>Együtt</span><strong>20&nbsp;745&nbsp;Ft</strong></div>
+          </div>
+          <p class="fine" style="margin-top:14px">Összes importdíj a csoportban.</p>
+        </div>
+
+        <div class="split-card reveal">
+          <input class="sr-only" type="radio" name="split" id="split50" checked>
+          <input class="sr-only" type="radio" name="split" id="split70">
+          <div class="split-top">
+            <p>Anna választja a megosztást:</p>
+            <div class="split-toggle" role="presentation">
+              <label for="split50">50 / 50</label>
+              <label for="split70">70 / 30</label>
+            </div>
+          </div>
+
+          <div class="chart" role="img" aria-label="Importdíj személyenként. 50/50 megosztásnál Anna 9220, Bence 6915, Csilla 4610 forintot fizet. 70/30 megosztásnál Anna 7376, Bence 7837, Csilla 5532 forintot fizet.">
+            <div class="bar-row" style="--alone:100; --t50:66.67; --t70:53.33">
+              <div class="who"><span class="avatar av-a">A</span>Anna</div>
+              <div class="track"><div class="bar alone">egyedül</div></div>
+              <div class="track"><div class="bar together"><span class="v50">9220&nbsp;Ft <span class="save-badge">−33%</span></span><span class="v70">7376&nbsp;Ft <span class="save-badge">−47%</span></span></div></div>
+            </div>
+            <div class="bar-row" style="--alone:66.67; --t50:50; --t70:56.67">
+              <div class="who"><span class="avatar av-b">B</span>Bence</div>
+              <div class="track"><div class="bar alone">egyedül 9220&nbsp;Ft</div></div>
+              <div class="track"><div class="bar together"><span class="v50">6915&nbsp;Ft</span><span class="v70">7837&nbsp;Ft</span></div></div>
+            </div>
+            <div class="bar-row" style="--alone:50; --t50:33.33; --t70:40">
+              <div class="who"><span class="avatar av-c">C</span>Csilla</div>
+              <div class="track"><div class="bar alone">egyedül 6915&nbsp;Ft</div></div>
+              <div class="track"><div class="bar together"><span class="v50">4610&nbsp;Ft</span><span class="v70">5532&nbsp;Ft</span></div></div>
+            </div>
+          </div>
+
+          <div class="legend" aria-hidden="true">
+            <span><i class="l-alone"></i>Importdíj egyedül</span>
+            <span><i class="l-together"></i>Importdíj együtt</span>
+          </div>
+
+          <p class="split-foot">
+            <span class="v50"><strong>50 / 50:</strong> Anna 33%-ot spórol, és Bence meg Csilla is kevesebbet fizet, mint egyedül.</span>
+            <span class="v70"><strong>70 / 30:</strong> a közös spórolás nagyobb része Annáé – 47% –, de Bence és Csilla így is kevesebbet fizet, mint egyedül.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="claims reveal-stagger">
+        <div class="claim"><strong>Jellemzően harmadával kevesebb</strong><p>importdíj szervezőként, alapértelmezett 50/50 megosztással.</p></div>
+        <div class="claim"><strong>Soha nem fizetsz többet</strong><p>mint ha egyedül rendelnél.</p></div>
+        <div class="claim"><strong>Ez egy példa, nem ígéret</strong><p>A spórolás attól függ, hány terméktípus közös a csoportban. Átfedés nélkül nincs spórolás.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIENCES ============ -->
+  <section class="section" id="kinek" aria-labelledby="kinek-cim">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Kinek szól</p>
+        <h2 id="kinek-cim">Szervezel vagy csatlakozol? Mindkettő megéri.</h2>
+      </div>
+
+      <div class="audience-grid">
+        <article class="aud aud-org reveal">
+          <svg class="aud-art" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#ffffff" opacity=".08"/><circle cx="100" cy="100" r="64" fill="#ffffff" opacity=".08"/></svg>
+          <span class="badge">Szervezőknek</span>
+          <h3>Úgyis rendelsz. Szervezőként olcsóbb.</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Akár 47%&#8209;kal kevesebb importdíj a saját rendelésedre</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Soha semmilyen díj, és minden két sikeres csoport után egy ingyenes csatlakozás</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Te döntöd el, hogyan oszlik meg a spórolás – 50/50 és 70/30 között</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Te szabod meg, mennyit előlegezel meg, és kiket fogadsz el</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Megbízható szervező jelvény</span></li>
+          </ul>
+        </article>
+
+        <article class="aud aud-join reveal">
+          <svg class="aud-art" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#5b4bc4" opacity=".08"/><circle cx="100" cy="100" r="64" fill="#5b4bc4" opacity=".08"/></svg>
+          <span class="badge">Csatlakozóknak</span>
+          <h3>Csatlakozz egy szomszéd rendeléséhez, és fizess kevesebb importdíjat.</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A közös terméktípusok után csak egyszer fizettek</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Csak egy termék kell? Nincs minimális rendelés.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Csatlakozás előtt látod a becsült spórolásodat</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Az első csoportod ingyenes</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Átvételkor fizetsz, nyilvános helyen</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="later reveal">
+        <span class="lbl">Később érkezik</span>
+        <ul>
+          <li><strong>Körök</strong> – rendszeres rendelés 2–4 állandó társsal, havi díjplafonnal</li>
+          <li><strong>Szervezőkereső</strong> – terület, távolság vagy kerület szerint</li>
+          <li><strong>Mobilappok</strong> – iOS és Android</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section pricing" id="arak" aria-labelledby="arak-cim">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Árak</p>
+        <h2 id="arak-cim">Csak akkor fizetsz, ha spórolsz.</h2>
+        <p>Szervezőknek ingyenes. Az első rendelésed ingyenes. Utána csak akkor fizetsz, ha spórolsz: a spórolásod negyedét, legfeljebb 750&nbsp;Ft-ot.</p>
+      </div>
+
+      <div class="price-grid reveal-stagger">
+        <div class="price">
+          <span class="who">Szervező</span>
+          <p class="amount">0&nbsp;Ft</p>
+          <p>Mindig ingyenes. Minden két sikeres csoport után egy ingyenes csatlakozás jár.</p>
+        </div>
+        <div class="price">
+          <span class="who">Első csoportod</span>
+          <p class="amount">0&nbsp;Ft</p>
+          <p>Ingyenes, amint megerősíted az átvételt. Ha a csoport meghiúsul, nem használod el.</p>
+        </div>
+        <div class="price featured">
+          <span class="tag">Csak ha spórolsz</span>
+          <span class="who">Utána, csatlakozóként</span>
+          <p class="amount">¼ <small>a spórolásodból</small></p>
+          <p>Legfeljebb 750&nbsp;Ft rendelésenként. 1000&nbsp;Ft alatti spórolásnál nincs díj. Csatlakozás előtt látod, és a végső díj sosem több a becsültnél.</p>
+        </div>
+        <div class="price">
+          <span class="who">Egyetlen apróság</span>
+          <p class="amount">200&nbsp;Ft</p>
+          <p>Egy termék a Temu minimális rendelési értéke alatt – kosár-kiegészítés nélkül.</p>
+        </div>
+      </div>
+
+      <div class="price-note reveal">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <p>A díjat előre feltöltött egyenlegből vonjuk le (feltöltés 1000&nbsp;Ft-tól, az eredeti kártyára visszatéríthető, csak app-díjakra használható). Csatlakozáskor zároljuk, és csak az átvétel megerősítése után vonjuk le. Az áruk árát személyesen fizeted a szervezőnek – abból az app nem kér részt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST ============ -->
+  <section class="section" id="biztonsag" aria-labelledby="biztonsag-cim">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Biztonság és adatvédelem</p>
+        <h2 id="biztonsag-cim">Átvételkor fizetsz. Nyilvános helyen találkoztok. A címed privát marad.</h2>
+      </div>
+
+      <div class="trust-cards reveal-stagger">
+        <div class="trust-card">
+          <div class="ti"><svg aria-hidden="true"><use href="#i-wallet"/></svg></div>
+          <h3>Átvételkor fizetsz</h3>
+          <p>A szervezőnek csak akkor fizetsz, amikor megkaptad a tételeidet. A szervező csak az áruk árát kérheti, semmi mást.</p>
+        </div>
+        <div class="trust-card">
+          <div class="ti"><svg aria-hidden="true"><use href="#i-people"/></svg></div>
+          <h3>Nyilvános átadás</h3>
+          <p>Az átvétel nyilvános helyen vagy csomagautomatánál történik, soha nem otthon. Az elmaradt átvétel figyelmeztetéssel, majd felfüggesztéssel jár.</p>
+        </div>
+        <div class="trust-card">
+          <div class="ti"><svg aria-hidden="true"><use href="#i-lock"/></svg></div>
+          <h3>A címed privát marad</h3>
+          <p>Másoknak csak a kerületed látszik. A szervező szállítási címe titkosítva, privátan marad.</p>
+        </div>
+      </div>
+
+      <div class="trust-more">
+        <div class="ladder-card reveal">
+          <h3>Bizalommal növő keretek</h3>
+          <p>Ennyi értékben tehetsz tételeket egy rendelésbe csatlakozóként. A szervezők szigorúbb keretet is megadhatnak.</p>
+          <div class="ladder">
+            <div class="rung" style="--h:42%"><strong>10&nbsp;000&nbsp;Ft</strong><span>új csatlakozóként</span></div>
+            <div class="rung" style="--h:68%"><strong>20&nbsp;000&nbsp;Ft</strong><span>2 sikeres átvétel után</span></div>
+            <div class="rung" style="--h:100%"><strong>35&nbsp;000&nbsp;Ft</strong><span>5 sikeres átvétel után</span></div>
+          </div>
+        </div>
+
+        <div class="list-card reveal">
+          <h3>Ami még véd</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-receipt"/></svg><span><strong>Rendelési igazolás:</strong> a szervező feltölti a Temu rendelés-visszaigazolását, mielőtt a rendelés lezárul.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg><span><strong>Privát bevásárlólista:</strong> csak a rendelésed szervezője látja.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-cloud"/></svg><span><strong>Adatok az EU-ban:</strong> AWS Frankfurt, meghatározott idő után töröljük. A fiókodat bármikor törölheted.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-user"/></svg><span><strong>Google-belépés:</strong> csak a neved és az e-mail-címed jut el az apphoz.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="gyik" aria-labelledby="gyik-cim">
+    <div class="wrap faq-grid">
+      <div class="section-head reveal">
+        <p class="kicker">GYIK</p>
+        <h2 id="gyik-cim">Gyakori kérdések</h2>
+        <p>Nem találod, amit keresel? Iratkozz fel, és az indulás előtt mindenről írunk.</p>
+      </div>
+      <div class="faq-list reveal-stagger">
+        <details>
+          <summary>A Temu szolgáltatása ez?</summary>
+          <p>Nem. Ez egy független app, amely segít a szomszédoknak összevonni a rendeléseiket. Nem áll kapcsolatban a Temuval.</p>
+        </details>
+        <details>
+          <summary>Ki fizet a Temunak?</summary>
+          <p>A szervező ad le és fizet ki egy normál Temu-rendelést. Te a tételeidért átvételkor fizetsz a szervezőnek.</p>
+        </details>
+        <details>
+          <summary>Mi van, ha nem érkeznek meg a tételeim?</summary>
+          <p>Amit nem kaptál meg, azért nem fizetsz.</p>
+        </details>
+        <details>
+          <summary>Miért a 150 eurós korlát?</summary>
+          <p>E felett a Temu másképp számolja az importdíjat, és nőnek a költségek, ezért az app minden közös rendelést e korlát alatt tart (a jelenlegi árfolyamon 69&nbsp;184&nbsp;Ft termékár).</p>
+        </details>
+        <details>
+          <summary>Ez szabályos?</summary>
+          <p>Igen. Az app valódi rendeléseket von össze, legálisan. Minden rendelést a szokásos módon vámkezelnek.</p>
+        </details>
+        <details>
+          <summary>Mikor indul?</summary>
+          <p>Először egy budapesti kerületben indul a próbaüzem. Hogy melyikben, azt a várólista dönti el.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WAITLIST ============ -->
+  <section class="section waitlist" id="varolista" aria-labelledby="varolista-cim">
+    <div class="wrap">
+      <div class="waitlist-card reveal">
+        <div class="intro">
+          <p class="kicker">Várólista</p>
+          <h2 id="varolista-cim">Hozd el a próbaüzemet a kerületedbe.</h2>
+          <p>Az a kerület kapja meg elsőként, ahol a legtöbb szomszéd feliratkozik.</p>
+          <ol class="pilot-steps">
+            <li>Iratkozz fel, és add meg a kerületed</li>
+            <li>Hívd meg a szomszédaidat</li>
+            <li>A legtöbb feliratkozóval rendelkező kerület indul elsőként</li>
+          </ol>
+        </div>
+
+        <div class="form-wrap" data-form-wrap>
+          <form class="form" data-waitlist-form novalidate>
+            <div class="field">
+              <label for="email">E-mail-cím</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="nev@pelda.hu" required>
+            </div>
+
+            <div class="field">
+              <label for="district">Kerület</label>
+              <select class="select" id="district" name="district" required>
+                <option value="" disabled selected>Válaszd ki a kerületed</option>
+                <optgroup label="Budapest">
+                  <option value="I">I. kerület</option>
+                  <option value="II">II. kerület</option>
+                  <option value="III">III. kerület</option>
+                  <option value="IV">IV. kerület</option>
+                  <option value="V">V. kerület</option>
+                  <option value="VI">VI. kerület</option>
+                  <option value="VII">VII. kerület</option>
+                  <option value="VIII">VIII. kerület</option>
+                  <option value="IX">IX. kerület</option>
+                  <option value="X">X. kerület</option>
+                  <option value="XI">XI. kerület</option>
+                  <option value="XII">XII. kerület</option>
+                  <option value="XIII">XIII. kerület</option>
+                  <option value="XIV">XIV. kerület</option>
+                  <option value="XV">XV. kerület</option>
+                  <option value="XVI">XVI. kerület</option>
+                  <option value="XVII">XVII. kerület</option>
+                  <option value="XVIII">XVIII. kerület</option>
+                  <option value="XIX">XIX. kerület</option>
+                  <option value="XX">XX. kerület</option>
+                  <option value="XXI">XXI. kerület</option>
+                  <option value="XXII">XXII. kerület</option>
+                  <option value="XXIII">XXIII. kerület</option>
+                </optgroup>
+                <option value="other">Másik település</option>
+              </select>
+            </div>
+            <div class="field other-town">
+              <label for="town">Település</label>
+              <input class="input" id="town" name="town" type="text" autocomplete="address-level2" placeholder="Például Debrecen">
+            </div>
+
+            <fieldset class="field">
+              <legend>Szeretnék…</legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="role" value="organize" required><span>Szervezni</span></label>
+                <label class="choice"><input type="radio" name="role" value="join"><span>Csatlakozni</span></label>
+                <label class="choice"><input type="radio" name="role" value="both"><span>Mindkettőt</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Milyen gyakran rendelsz a Temuról? <span class="opt">(nem kötelező)</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="frequency" value="monthly"><span>Havonta vagy gyakrabban</span></label>
+                <label class="choice"><input type="radio" name="frequency" value="few-months"><span>Pár havonta</span></label>
+                <label class="choice"><input type="radio" name="frequency" value="rarely"><span>Ritkán</span></label>
+              </div>
+            </fieldset>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>Hozzájárulok, hogy e-mailt kapjak az indulásról. <a href="#adatvedelem">Adatvédelmi tájékoztató</a></span>
+            </label>
+
+            <button class="btn btn-block" type="submit">Feliratkozom a várólistára <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+
+            <p class="fine">Megerősítő e-mailt küldünk; csak a megerősített címek számítanak. Az adataidat az EU-ban tároljuk, csak az indulással kapcsolatos hírekhez használjuk, és töröljük, ha az app 12 hónapon belül nem indul el. Egy kattintással leiratkozhatsz.</p>
+          </form>
+
+          <div class="success" role="status" aria-live="polite" tabindex="-1" data-success>
+            <div class="check"><svg aria-hidden="true"><use href="#i-mail"/></svg></div>
+            <h3>Már csak egy lépés!</h3>
+            <p>Küldtünk egy megerősítő e-mailt. Kattints a benne lévő linkre, hogy a feliratkozásod számítson.</p>
+            <p><strong>Hívd meg a szomszédaidat.</strong> Az a kerület kapja elsőként a próbaüzemet, ahonnan a legtöbben feliratkoznak.</p>
+            <div class="share">
+              <a data-share="facebook" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-share"/></svg>Facebook</a>
+              <a data-share="messenger" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Messenger</a>
+              <a data-share="whatsapp" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+              <button type="button" data-copy data-copied-text="Link másolva!"><svg aria-hidden="true"><use href="#i-link"/></svg><span>Link másolása</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <a class="logo" href="./" aria-label="Szomszédkosár – kezdőlap">
+        <svg aria-hidden="true"><use href="#logo-mark"/></svg>
+        Szomszédkosár
+      </a>
+      <nav class="footer-links" aria-label="Lábléc">
+        <a href="#hogyan">Hogyan működik</a>
+        <a href="#arak">Árak</a>
+        <a href="#gyik">GYIK</a>
+        <a href="#adatvedelem" id="adatvedelem">Adatvédelmi tájékoztató</a>
+        <a href="#impresszum" id="impresszum">Impresszum</a>
+        <a href="en/" lang="en" hreflang="en">English</a>
+      </nav>
+    </div>
+    <div class="disclaimer">
+      <p>Független szolgáltatás. Nem áll kapcsolatban a Temuval, és a Temu nem támogatja vagy szponzorálja. A Temu a tulajdonosának védjegye.</p>
+      <p>Az importdíjak a 2026. november 1-től érvényes szabályokon alapulnak, kb. 363&nbsp;Ft/€ árfolyammal. A spórolás attól függ, hány terméktípus közös a csoportban.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Szomszédkosár – order with your neighbours, pay less in import charges</title>
+  <meta name="description" content="Order from Temu together with your neighbours and pay import charges only once for the item types you share. Join the waitlist and bring the pilot to your district.">
+  <meta name="theme-color" content="#0d3b2a">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" hreflang="hu" href="../">
+  <link rel="alternate" hreflang="en" href="./">
+  <meta property="og:title" content="Szomszédkosár – order with your neighbours">
+  <meta property="og:description" content="Shared item types are charged only once. Join the waitlist.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></symbol>
+    <symbol id="i-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="m8 8 1.2 1.2L11.5 7M8 13.5l1.2 1.2 2.3-2.2M14 8h2.5M14 13.5h2.5M8 18h8.5"/></symbol>
+    <symbol id="i-parcel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8M7.5 5.5l9 5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2M6 6l9-3 1.5 3"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M15 14.6c3 .1 6 1.9 6 5.4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7.5v.01"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4 2.5 18a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 4a2 2 0 0 0-3.4 0Z"/><path d="M12 9.5v4M12 17v.01"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8H7Z"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.6 6.6C4.3 8.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.9-1"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.2A8 8 0 1 1 20 12Z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+    <!-- Basket item types -->
+    <symbol id="t-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 3 6l2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0Z"/></symbol>
+    <symbol id="t-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+    <symbol id="t-mug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11v7a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V8Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3v2M11 3v2"/></symbol>
+    <symbol id="t-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></symbol>
+    <symbol id="t-lamp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l3 8H5l3-8Z"/><path d="M12 11v8M8 21h8"/></symbol>
+    <symbol id="t-ball" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9.5c5 2 12 2 17 0M5 17c4-2.5 10-2.5 14 0"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 36 36"><rect width="36" height="36" rx="11" fill="#1f7a57"/><path d="M8.5 16.5 18 9.2l9.5 7.3" fill="none" stroke="#c8f169" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="11.5" y="17" width="13" height="10.5" rx="2.2" fill="#c8f169"/><path d="M18 17v4.6" stroke="#1f7a57" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="./" aria-label="Szomszédkosár – home">
+      <svg aria-hidden="true"><use href="#logo-mark"/></svg>
+      Szomszédkosár
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#example">Savings</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#trust">Safety</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang" aria-label="Language">
+      <a href="../" lang="hu" hreflang="hu">HU</a>
+      <span aria-current="true" lang="en">EN</span>
+    </div>
+    <a class="btn btn-small header-cta" href="#waitlist">Join waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="pill"><span class="dot" aria-hidden="true"></span>Coming soon to Budapest · for Temu orders</p>
+        <h1>Order with your <span class="mark">neighbours</span>.</h1>
+        <p class="lead">Pay import charges only once for the item types you share.</p>
+        <p class="sub">One neighbour places a single order and the others join it. The app merges the carts, works out everyone's fair share and helps with the handover.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#waitlist">Join the waitlist <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#how-it-works">How does it work?</a>
+        </div>
+        <ul class="proof">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free for organizers</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pay when you pick up</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Your address stays private</li>
+        </ul>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 470" role="presentation">
+          <circle cx="262" cy="250" r="205" fill="#ecf8f1"/>
+          <circle class="spin-slow" cx="262" cy="250" r="232" fill="none" stroke="#bfe3cd" stroke-width="2" stroke-dasharray="3 12"/>
+          <ellipse cx="262" cy="418" rx="236" ry="16" fill="#dcebe2"/>
+
+          <!-- Middle building (neighbour C) -->
+          <rect x="218" y="132" width="96" height="284" rx="8" fill="#dceefb" stroke="#10231c" stroke-width="2.5"/>
+          <g fill="#ffffff" stroke="#10231c" stroke-width="1.5">
+            <rect x="234" y="150" width="24" height="20" rx="3"/><rect x="274" y="150" width="24" height="20" rx="3"/>
+            <rect x="234" y="184" width="24" height="20" rx="3"/><rect class="win-blink d2" x="274" y="184" width="24" height="20" rx="3"/>
+            <rect class="win-blink d4" x="234" y="218" width="24" height="20" rx="3"/><rect x="274" y="218" width="24" height="20" rx="3"/>
+            <rect x="234" y="252" width="24" height="20" rx="3"/><rect x="274" y="252" width="24" height="20" rx="3"/>
+            <rect x="234" y="286" width="24" height="20" rx="3"/><rect x="274" y="286" width="24" height="20" rx="3"/>
+          </g>
+
+          <!-- Left block of flats (neighbour A) -->
+          <rect x="34" y="146" width="162" height="14" rx="4" fill="#10231c"/>
+          <rect x="40" y="156" width="150" height="260" rx="6" fill="#ffffff" stroke="#10231c" stroke-width="2.5"/>
+          <g fill="#e3ece6" stroke="#10231c" stroke-width="1.5">
+            <rect x="54" y="172" width="22" height="20" rx="3"/><rect class="win-blink" x="86" y="172" width="22" height="20" rx="3"/><rect x="118" y="172" width="22" height="20" rx="3"/><rect x="150" y="172" width="22" height="20" rx="3"/>
+            <rect x="54" y="204" width="22" height="20" rx="3"/><rect x="86" y="204" width="22" height="20" rx="3"/><rect class="win-blink d3" x="118" y="204" width="22" height="20" rx="3"/><rect x="150" y="204" width="22" height="20" rx="3"/>
+            <rect class="win-blink d2" x="54" y="236" width="22" height="20" rx="3"/><rect x="86" y="236" width="22" height="20" rx="3"/><rect x="118" y="236" width="22" height="20" rx="3"/><rect x="150" y="236" width="22" height="20" rx="3"/>
+            <rect x="54" y="268" width="22" height="20" rx="3"/><rect x="86" y="268" width="22" height="20" rx="3"/><rect x="118" y="268" width="22" height="20" rx="3"/><rect class="win-blink d4" x="150" y="268" width="22" height="20" rx="3"/>
+            <rect x="54" y="300" width="22" height="20" rx="3"/><rect class="win-blink d3" x="86" y="300" width="22" height="20" rx="3"/><rect x="118" y="300" width="22" height="20" rx="3"/><rect x="150" y="300" width="22" height="20" rx="3"/>
+            <rect x="54" y="332" width="22" height="20" rx="3"/><rect x="86" y="332" width="22" height="20" rx="3"/><rect x="118" y="332" width="22" height="20" rx="3"/><rect x="150" y="332" width="22" height="20" rx="3"/>
+          </g>
+          <rect x="98" y="372" width="34" height="44" rx="4" fill="#10231c"/>
+          <rect x="84" y="364" width="62" height="8" rx="3" fill="#1f7a57"/>
+
+          <!-- Right house (neighbour B) -->
+          <rect x="362" y="290" width="112" height="126" rx="4" fill="#e6e1ff" stroke="#10231c" stroke-width="2.5"/>
+          <path d="M350 298 418 238l68 60Z" fill="#5b4bc4" stroke="#10231c" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="406" y="358" width="26" height="58" rx="3" fill="#10231c"/>
+          <rect class="win-blink d3" x="376" y="312" width="24" height="22" rx="3" fill="#c8f169" stroke="#10231c" stroke-width="1.5"/>
+          <rect x="440" y="312" width="22" height="22" rx="3" fill="#ffffff" stroke="#10231c" stroke-width="1.5"/>
+          <!-- Tree -->
+          <rect x="492" y="360" width="6" height="56" rx="3" fill="#10231c"/>
+          <circle cx="495" cy="350" r="22" fill="#1f7a57"/>
+
+          <!-- Flow paths -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M128 124 C 190 140, 230 250, 258 330" stroke="#ffffff" stroke-width="7"/>
+            <path d="M402 222 C 360 236, 300 270, 282 330" stroke="#ffffff" stroke-width="7"/>
+            <path d="M268 126 C 268 200, 270 260, 270 326" stroke="#ffffff" stroke-width="7"/>
+            <path class="flow" d="M128 124 C 190 140, 230 250, 258 330" stroke="#1f7a57" stroke-width="3"/>
+            <path class="flow" d="M402 222 C 360 236, 300 270, 282 330" stroke="#5b4bc4" stroke-width="3"/>
+            <path class="flow" d="M268 126 C 268 200, 270 260, 270 326" stroke="#2f6f9f" stroke-width="3"/>
+          </g>
+
+          <!-- Travelling mini parcels -->
+          <g class="parcel-travel pt-1"><rect x="-9" y="-8" width="18" height="16" rx="3" fill="#c9a27a" stroke="#10231c" stroke-width="1.8"/><path d="M0 -8v16" stroke="#10231c" stroke-width="1.5"/></g>
+          <g class="parcel-travel pt-2 t2"><rect x="-9" y="-8" width="18" height="16" rx="3" fill="#c9a27a" stroke="#10231c" stroke-width="1.8"/><path d="M0 -8v16" stroke="#10231c" stroke-width="1.5"/></g>
+          <g class="parcel-travel pt-3 t3"><rect x="-9" y="-8" width="18" height="16" rx="3" fill="#c9a27a" stroke="#10231c" stroke-width="1.8"/><path d="M0 -8v16" stroke="#10231c" stroke-width="1.5"/></g>
+
+          <!-- Shared parcel -->
+          <g class="box-bounce">
+            <path d="M214 338 198 318h58l14 20Z" fill="#dcc0a0" stroke="#10231c" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M326 338 342 318h-58l-14 20Z" fill="#dcc0a0" stroke="#10231c" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="214" y="336" width="112" height="80" rx="7" fill="#c9a27a" stroke="#10231c" stroke-width="2.5"/>
+            <rect x="261" y="336" width="18" height="80" fill="#e7cfa9"/>
+            <rect x="226" y="364" width="30" height="34" rx="4" fill="#ffffff" stroke="#10231c" stroke-width="1.5"/>
+            <path d="M232 374h18M232 381h18M232 388h11" stroke="#10231c" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="304" cy="378" r="13" fill="#c8f169" stroke="#10231c" stroke-width="1.8"/>
+            <path d="m298 378 4 4 8-8" fill="none" stroke="#10231c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+
+          <!-- Neighbour pins -->
+          <g transform="translate(118 132)"><g class="pin-bob">
+            <path d="M0 0C-9-11-16-17-16-27a16 16 0 0 1 32 0C16-17 9-11 0 0Z" fill="#c8f169" stroke="#10231c" stroke-width="2.2"/>
+            <text x="0" y="-21" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" fill="#10231c">A</text>
+          </g></g>
+          <g transform="translate(266 128)"><g class="pin-bob p3">
+            <path d="M0 0C-9-11-16-17-16-27a16 16 0 0 1 32 0C16-17 9-11 0 0Z" fill="#dceefb" stroke="#10231c" stroke-width="2.2"/>
+            <text x="0" y="-21" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" fill="#10231c">C</text>
+          </g></g>
+          <g transform="translate(418 226)"><g class="pin-bob p2">
+            <path d="M0 0C-9-11-16-17-16-27a16 16 0 0 1 32 0C16-17 9-11 0 0Z" fill="#e6e1ff" stroke="#10231c" stroke-width="2.2"/>
+            <text x="0" y="-21" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="16" fill="#10231c">B</text>
+          </g></g>
+
+          <!-- Sparkles -->
+          <g fill="#1f7a57">
+            <path d="M462 120l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" opacity=".55"/>
+            <path d="M40 92l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" opacity=".4"/>
+          </g>
+        </svg>
+
+        <div class="float-card fc-1">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
+          <span><strong>Up to 47% less</strong>in import charges for organizers</span>
+        </div>
+        <div class="float-card fc-2">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <span><strong>Pay at pickup</strong>to the organizer, in person</span>
+        </div>
+        <div class="float-card fc-3">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-people"/></svg></span>
+          <span><strong>3 neighbours, 1 order</strong>shared item types charged once</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="section problem" id="problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">The problem</p>
+        <h2 id="problem-title">From 1 November, about 2,300&nbsp;HUF in import charges for each different item type.</h2>
+        <p>Since 1 July 2026 every Temu order shipped from outside the EU pays customs duty for each item type, and from 1 November a handling fee comes on top. The more varied your basket, the more you pay.</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="panel-dark reveal">
+          <div class="formula" aria-label="EUR 3 duty plus EUR 2 handling fee plus 27% VAT, about 2,300 forints per item type">
+            <span class="chip-dark"><strong>€3</strong>customs duty</span>
+            <span class="op" aria-hidden="true">+</span>
+            <span class="chip-dark"><strong>€2</strong>handling fee</span>
+            <span class="op" aria-hidden="true">+</span>
+            <span class="chip-dark"><strong>27%</strong>VAT</span>
+            <span class="op" aria-hidden="true">≈</span>
+            <span class="chip-dark result"><strong>2,300&nbsp;HUF</strong>per item type</span>
+          </div>
+
+          <ul class="basket" aria-label="A basket with six different item types" role="list">
+            <li class="item"><svg aria-hidden="true"><use href="#t-shirt"/></svg><span class="tag">2,300&nbsp;HUF</span><span class="sr-only">Kids' clothes</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-phone"/></svg><span class="tag">2,300&nbsp;HUF</span><span class="sr-only">Phone case</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-mug"/></svg><span class="tag">2,300&nbsp;HUF</span><span class="sr-only">Kitchen item</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-head"/></svg><span class="tag">2,300&nbsp;HUF</span><span class="sr-only">Headphones</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-lamp"/></svg><span class="tag">2,300&nbsp;HUF</span><span class="sr-only">Lamp</span></li>
+            <li class="item"><svg aria-hidden="true"><use href="#t-ball"/></svg><span class="tag">2,300&nbsp;HUF</span><span class="sr-only">Toy</span></li>
+          </ul>
+          <div class="basket-total">
+            <span>Import charges on a basket with 6 item types</span>
+            <strong>about 13,800&nbsp;HUF</strong>
+          </div>
+        </div>
+
+        <div class="problem-side">
+          <div class="panel-dark stat-card reveal">
+            <p class="big">5,250&nbsp;HUF</p>
+            <h3>Just need one small thing?</h3>
+            <p>Temu's minimum order is 5,250&nbsp;HUF, so even a single small item means padding your cart.</p>
+          </div>
+          <div class="panel-dark stat-card reveal">
+            <h3>When?</h3>
+            <ol class="timeline">
+              <li><span><strong>1 July 2026</strong>€3 customs duty per item type, plus VAT</span></li>
+              <li class="now"><span><strong>1 November 2026</strong>+€2 handling fee per item type, plus VAT – just before the Christmas season</span></li>
+              <li><span><strong>1 July 2028</strong>the temporary €3 duty rule runs until then; the handling fee stays after that</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" id="how-it-works" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">How it works</p>
+        <h2 id="how-title">Five steps, from sign-in to pickup.</h2>
+        <p>The organizer places one real Temu order. You just add your cart and pick up your parcel.</p>
+      </div>
+
+      <ol class="steps reveal-stagger">
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-user"/></svg></div>
+          <h3>Sign in with Google</h3>
+          <p>Set your district. No password, and your exact address is never shown to anyone.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <h3>Find an order near you</h3>
+          <p>See nearby organizers, how many item types you share, how much they will front for you, and your estimated saving after fees.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-cart"/></svg></div>
+          <h3>Add your cart</h3>
+          <p>Upload a screenshot of your Temu cart or paste product links. The app reads the items and you confirm them.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-list"/></svg></div>
+          <h3>The organizer orders</h3>
+          <p>The app merges everyone's items into one checklist. The organizer places a single order, and the app works out each share from the real checkout.</p>
+        </li>
+        <li class="step">
+          <div class="step-icon"><svg aria-hidden="true"><use href="#i-parcel"/></svg></div>
+          <h3>Meet, pay and pick up</h3>
+          <p>Collect your items at a public place or parcel locker, pay the organizer for your goods, and confirm with your pickup code.</p>
+        </li>
+      </ol>
+
+      <div class="note-band reveal">
+        <svg aria-hidden="true"><use href="#i-shield"/></svg>
+        <p><strong>The app never handles money for goods.</strong> You pay the organizer in person at pickup, so nobody pays for anything they have not received.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAVINGS EXAMPLE ============ -->
+  <section class="section savings" id="example" aria-labelledby="example-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Savings example</p>
+        <h2 id="example-title">Cut your import charges by up to 47%.</h2>
+        <p>Shared item types are charged only once. Here is a three-person example, using import charges from 1 November 2026.</p>
+      </div>
+
+      <div class="savings-grid">
+        <div class="reveal">
+          <div class="scenario">
+            <div class="person"><span class="avatar av-a" aria-hidden="true">A</span><div><strong>Anna</strong><span>6 item types</span></div><span class="role">Organizer</span></div>
+            <div class="person"><span class="avatar av-b" aria-hidden="true">B</span><div><strong>Bence</strong><span>4 item types, 2 shared with Anna</span></div></div>
+            <div class="person"><span class="avatar av-c" aria-hidden="true">C</span><div><strong>Csilla</strong><span>3 item types, 2 shared with Anna</span></div></div>
+          </div>
+          <div class="totals">
+            <div class="was"><span>Ordering alone</span><strong>29,965&nbsp;HUF</strong></div>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+            <div class="now"><span>Ordering together</span><strong>20,745&nbsp;HUF</strong></div>
+          </div>
+          <p class="fine" style="margin-top:14px">Total import charges for the group.</p>
+        </div>
+
+        <div class="split-card reveal">
+          <input class="sr-only" type="radio" name="split" id="split50" checked>
+          <input class="sr-only" type="radio" name="split" id="split70">
+          <div class="split-top">
+            <p>Split chosen by Anna:</p>
+            <div class="split-toggle" role="presentation">
+              <label for="split50">50 / 50</label>
+              <label for="split70">70 / 30</label>
+            </div>
+          </div>
+
+          <div class="chart" role="img" aria-label="Import charges per person. With a 50/50 split Anna pays 9,220, Bence 6,915 and Csilla 4,610 forints. With a 70/30 split Anna pays 7,376, Bence 7,837 and Csilla 5,532 forints.">
+            <div class="bar-row" style="--alone:100; --t50:66.67; --t70:53.33">
+              <div class="who"><span class="avatar av-a">A</span>Anna</div>
+              <div class="track"><div class="bar alone">alone</div></div>
+              <div class="track"><div class="bar together"><span class="v50">9,220&nbsp;HUF <span class="save-badge">−33%</span></span><span class="v70">7,376&nbsp;HUF <span class="save-badge">−47%</span></span></div></div>
+            </div>
+            <div class="bar-row" style="--alone:66.67; --t50:50; --t70:56.67">
+              <div class="who"><span class="avatar av-b">B</span>Bence</div>
+              <div class="track"><div class="bar alone">alone 9,220&nbsp;HUF</div></div>
+              <div class="track"><div class="bar together"><span class="v50">6,915&nbsp;HUF</span><span class="v70">7,837&nbsp;HUF</span></div></div>
+            </div>
+            <div class="bar-row" style="--alone:50; --t50:33.33; --t70:40">
+              <div class="who"><span class="avatar av-c">C</span>Csilla</div>
+              <div class="track"><div class="bar alone">alone 6,915&nbsp;HUF</div></div>
+              <div class="track"><div class="bar together"><span class="v50">4,610&nbsp;HUF</span><span class="v70">5,532&nbsp;HUF</span></div></div>
+            </div>
+          </div>
+
+          <div class="legend" aria-hidden="true">
+            <span><i class="l-alone"></i>Import charges alone</span>
+            <span><i class="l-together"></i>Import charges together</span>
+          </div>
+
+          <p class="split-foot">
+            <span class="v50"><strong>50 / 50:</strong> Anna saves 33%, and Bence and Csilla both pay less than ordering alone.</span>
+            <span class="v70"><strong>70 / 30:</strong> Anna keeps more of the shared saving – 47% – and Bence and Csilla still pay less than ordering alone.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="claims reveal-stagger">
+        <div class="claim"><strong>Typically a third less</strong><p>in import charges for organizers, with the default 50/50 split.</p></div>
+        <div class="claim"><strong>You never pay more</strong><p>than ordering alone.</p></div>
+        <div class="claim"><strong>An example, not a promise</strong><p>Savings depend on how many item types the group shares. No overlap means no saving.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIENCES ============ -->
+  <section class="section" id="who" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Who it's for</p>
+        <h2 id="who-title">Organizing or joining? Both pay off.</h2>
+      </div>
+
+      <div class="audience-grid">
+        <article class="aud aud-org reveal">
+          <svg class="aud-art" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#ffffff" opacity=".08"/><circle cx="100" cy="100" r="64" fill="#ffffff" opacity=".08"/></svg>
+          <span class="badge">For organizers</span>
+          <h3>You're ordering anyway. Hosting makes it cheaper.</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Up to 47% lower import charges on your own order</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>No fees ever, plus a free join after every two completed groups</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>You choose how the saving is divided, from 50/50 to 70/30</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>You set how much you front and which joiners you accept</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A trusted-organizer badge</span></li>
+          </ul>
+        </article>
+
+        <article class="aud aud-join reveal">
+          <svg class="aud-art" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#5b4bc4" opacity=".08"/><circle cx="100" cy="100" r="64" fill="#5b4bc4" opacity=".08"/></svg>
+          <span class="badge">For joiners</span>
+          <h3>Join a neighbour's order and pay less in import charges.</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Shared item types are charged only once</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Just one item? No minimum order.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>See your estimated saving before you join</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Your first group is free</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Pay at pickup, in a public place</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="later reveal">
+        <span class="lbl">Coming later</span>
+        <ul>
+          <li><strong>Circles</strong> – order repeatedly with 2–4 regulars, with a monthly fee cap</li>
+          <li><strong>Organizer discovery</strong> – by area, radius or district</li>
+          <li><strong>Mobile apps</strong> – iOS and Android</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Pricing</p>
+        <h2 id="pricing-title">You only pay when you save.</h2>
+        <p>Free for organizers. Your first order is free. After that you only pay when you save: a quarter of your saving, at most 750&nbsp;HUF.</p>
+      </div>
+
+      <div class="price-grid reveal-stagger">
+        <div class="price">
+          <span class="who">Organizer</span>
+          <p class="amount">0&nbsp;HUF</p>
+          <p>Always free. Earn a free join after every two completed groups.</p>
+        </div>
+        <div class="price">
+          <span class="who">Your first group</span>
+          <p class="amount">0&nbsp;HUF</p>
+          <p>Free once the pickup is confirmed. A failed group does not use it up.</p>
+        </div>
+        <div class="price featured">
+          <span class="tag">Only when you save</span>
+          <span class="who">After that, as a joiner</span>
+          <p class="amount">¼ <small>of your saving</small></p>
+          <p>At most 750&nbsp;HUF per order. No fee on savings under 1,000&nbsp;HUF. Shown before you join, and the final fee never exceeds the estimate.</p>
+        </div>
+        <div class="price">
+          <span class="who">Small add-on</span>
+          <p class="amount">200&nbsp;HUF</p>
+          <p>A single item under Temu's minimum order – no padding your cart.</p>
+        </div>
+      </div>
+
+      <div class="price-note reveal">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <p>Fees come from a prepaid in-app balance (top-ups from 1,000&nbsp;HUF, refundable to the original card, usable only for app fees). The fee is held when you join and taken only after you confirm pickup. You pay the organizer for your goods in person – the app never takes a cut of them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST ============ -->
+  <section class="section" id="trust" aria-labelledby="trust-title">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Trust, safety and privacy</p>
+        <h2 id="trust-title">Pay only when you pick up. Meet in public. Your address stays private.</h2>
+      </div>
+
+      <div class="trust-cards reveal-stagger">
+        <div class="trust-card">
+          <div class="ti"><svg aria-hidden="true"><use href="#i-wallet"/></svg></div>
+          <h3>Pay at pickup</h3>
+          <p>You pay the organizer only when you receive your items. Organizers may ask only for the cost of your goods, nothing extra.</p>
+        </div>
+        <div class="trust-card">
+          <div class="ti"><svg aria-hidden="true"><use href="#i-people"/></svg></div>
+          <h3>Public handovers</h3>
+          <p>Pickups happen at public places or parcel lockers, never at home. Missed pickups lead to strikes and suspension.</p>
+        </div>
+        <div class="trust-card">
+          <div class="ti"><svg aria-hidden="true"><use href="#i-lock"/></svg></div>
+          <h3>Your address stays private</h3>
+          <p>Only your district is visible to others. The organizer's delivery address stays private and encrypted.</p>
+        </div>
+      </div>
+
+      <div class="trust-more">
+        <div class="ladder-card reveal">
+          <h3>Limits that grow with trust</h3>
+          <p>How much a joiner can add to one order. Organizers can set stricter limits.</p>
+          <div class="ladder">
+            <div class="rung" style="--h:42%"><strong>10,000&nbsp;HUF</strong><span>as a new joiner</span></div>
+            <div class="rung" style="--h:68%"><strong>20,000&nbsp;HUF</strong><span>after 2 completed pickups</span></div>
+            <div class="rung" style="--h:100%"><strong>35,000&nbsp;HUF</strong><span>after 5 completed pickups</span></div>
+          </div>
+        </div>
+
+        <div class="list-card reveal">
+          <h3>What else protects you</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-receipt"/></svg><span><strong>Proof of order:</strong> the organizer uploads the Temu order confirmation before the order is locked.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-eye-off"/></svg><span><strong>Private shopping list:</strong> visible only to the organizer of your order.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-cloud"/></svg><span><strong>Data in the EU:</strong> AWS Frankfurt, deleted after a fixed period. Delete your account at any time.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-user"/></svg><span><strong>Google sign-in:</strong> shares only your name and email with the app.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="section-head reveal">
+        <p class="kicker">FAQ</p>
+        <h2 id="faq-title">Questions, answered</h2>
+        <p>Something missing? Join the waitlist and we'll keep you posted before launch.</p>
+      </div>
+      <div class="faq-list reveal-stagger">
+        <details>
+          <summary>Is this a Temu service?</summary>
+          <p>No. It is an independent app that helps neighbours combine orders. It is not affiliated with Temu.</p>
+        </details>
+        <details>
+          <summary>Who pays Temu?</summary>
+          <p>The organizer places and pays one normal Temu order. You pay the organizer for your items when you pick them up.</p>
+        </details>
+        <details>
+          <summary>What if my items do not arrive?</summary>
+          <p>You do not pay for items you did not receive.</p>
+        </details>
+        <details>
+          <summary>Why the EUR 150 limit?</summary>
+          <p>Above it Temu charges import fees differently and costs rise, so the app keeps each shared order under it (69,184&nbsp;HUF of item prices at the current rate).</p>
+        </details>
+        <details>
+          <summary>Is this allowed?</summary>
+          <p>Yes. The app combines real orders legally, and every order is declared normally.</p>
+        </details>
+        <details>
+          <summary>When does it launch?</summary>
+          <p>The pilot starts in one Budapest district first. The waitlist decides which.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WAITLIST ============ -->
+  <section class="section waitlist" id="waitlist" aria-labelledby="waitlist-title">
+    <div class="wrap">
+      <div class="waitlist-card reveal">
+        <div class="intro">
+          <p class="kicker">Waitlist</p>
+          <h2 id="waitlist-title">Bring the pilot to your district.</h2>
+          <p>The district with the most neighbours on the waitlist gets the pilot first.</p>
+          <ol class="pilot-steps">
+            <li>Sign up and pick your district</li>
+            <li>Invite your neighbours</li>
+            <li>The district with the most sign-ups launches first</li>
+          </ol>
+        </div>
+
+        <div class="form-wrap" data-form-wrap>
+          <form class="form" data-waitlist-form novalidate>
+            <div class="field">
+              <label for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="field">
+              <label for="district">District</label>
+              <select class="select" id="district" name="district" required>
+                <option value="" disabled selected>Choose your district</option>
+                <optgroup label="Budapest">
+                  <option value="I">District I</option>
+                  <option value="II">District II</option>
+                  <option value="III">District III</option>
+                  <option value="IV">District IV</option>
+                  <option value="V">District V</option>
+                  <option value="VI">District VI</option>
+                  <option value="VII">District VII</option>
+                  <option value="VIII">District VIII</option>
+                  <option value="IX">District IX</option>
+                  <option value="X">District X</option>
+                  <option value="XI">District XI</option>
+                  <option value="XII">District XII</option>
+                  <option value="XIII">District XIII</option>
+                  <option value="XIV">District XIV</option>
+                  <option value="XV">District XV</option>
+                  <option value="XVI">District XVI</option>
+                  <option value="XVII">District XVII</option>
+                  <option value="XVIII">District XVIII</option>
+                  <option value="XIX">District XIX</option>
+                  <option value="XX">District XX</option>
+                  <option value="XXI">District XXI</option>
+                  <option value="XXII">District XXII</option>
+                  <option value="XXIII">District XXIII</option>
+                </optgroup>
+                <option value="other">Other town</option>
+              </select>
+            </div>
+            <div class="field other-town">
+              <label for="town">Town</label>
+              <input class="input" id="town" name="town" type="text" autocomplete="address-level2" placeholder="For example Debrecen">
+            </div>
+
+            <fieldset class="field">
+              <legend>I'd like to…</legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="role" value="organize" required><span>Organize</span></label>
+                <label class="choice"><input type="radio" name="role" value="join"><span>Join</span></label>
+                <label class="choice"><input type="radio" name="role" value="both"><span>Both</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>How often do you order from Temu? <span class="opt">(optional)</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="frequency" value="monthly"><span>Monthly or more</span></label>
+                <label class="choice"><input type="radio" name="frequency" value="few-months"><span>Every few months</span></label>
+                <label class="choice"><input type="radio" name="frequency" value="rarely"><span>Rarely</span></label>
+              </div>
+            </fieldset>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>I agree to receive emails about the launch. <a href="#privacy">Privacy notice</a></span>
+            </label>
+
+            <button class="btn btn-block" type="submit">Join the waitlist <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+
+            <p class="fine">We'll send a confirmation email; only confirmed addresses count. Your data is stored in the EU, used only for launch updates, and deleted if the app does not launch within 12 months. One-click unsubscribe.</p>
+          </form>
+
+          <div class="success" role="status" aria-live="polite" tabindex="-1" data-success>
+            <div class="check"><svg aria-hidden="true"><use href="#i-mail"/></svg></div>
+            <h3>One more step!</h3>
+            <p>We've sent you a confirmation email. Click the link in it so your sign-up counts.</p>
+            <p><strong>Invite your neighbours.</strong> The district with the most sign-ups gets the pilot first.</p>
+            <div class="share">
+              <a data-share="facebook" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-share"/></svg>Facebook</a>
+              <a data-share="messenger" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>Messenger</a>
+              <a data-share="whatsapp" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+              <button type="button" data-copy data-copied-text="Link copied!"><svg aria-hidden="true"><use href="#i-link"/></svg><span>Copy link</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <a class="logo" href="./" aria-label="Szomszédkosár – home">
+        <svg aria-hidden="true"><use href="#logo-mark"/></svg>
+        Szomszédkosár
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy" id="privacy">Privacy notice</a>
+        <a href="#imprint" id="imprint">Imprint</a>
+        <a href="../" lang="hu" hreflang="hu">Magyar</a>
+      </nav>
+    </div>
+    <div class="disclaimer">
+      <p>An independent service. Not affiliated with, endorsed by or sponsored by Temu. Temu is a trademark of its owner.</p>
+      <p>Import charges are based on the rules from 1 November 2026, at about 363&nbsp;HUF/EUR. Savings depend on how many item types group members share.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/main.js" defer></script>
+</body>
+</html>
