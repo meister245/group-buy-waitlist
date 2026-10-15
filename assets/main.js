@@ -10,16 +10,6 @@
 
   var form = wrap.querySelector("[data-waitlist-form]");
   var success = wrap.querySelector("[data-success]");
-  var district = form.querySelector("#district");
-  var town = form.querySelector("#town");
-
-  // "Other town" needs a town name.
-  function syncTown() {
-    town.required = district.value === "other";
-  }
-  district.addEventListener("change", syncTown);
-  syncTown();
-
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 

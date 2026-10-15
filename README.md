@@ -11,10 +11,12 @@ Pure HTML and CSS, with one small script for the placeholder waitlist form. No b
 | `index.html` | Hungarian page (primary) |
 | `en/index.html` | English version |
 | `assets/styles.css` | All styles, animations and the CSS-only savings toggle |
-| `assets/main.js` | Placeholder form handling, "other town" field, share links |
+| `assets/main.js` | Placeholder form handling, share links |
 | `assets/favicon.svg` | Logo mark |
 
-Page sections follow the brief, top to bottom: hero, the problem, how it works, savings example, organizers / joiners, pricing, trust, FAQ, waitlist form, footer with the independence disclaimer.
+Page sections, top to bottom: hero, the problem, how it works, savings example (organizer split chart, then the joiner preview and minimum-order graphic), organizers / joiners, trust, FAQ, waitlist form, footer with the independence disclaimer.
+
+Messaging rules (from user feedback): never call the product an "app" (describe what happens, or use "we"); the English page uses typical British names in the examples; the launch is nationwide, so no Budapest or district prioritisation; no app fees or pricing, no technical details (hosting, sign-in provider), no trust-based limits. Show 2,300 HUF only as an extra cost per item type, never on its own where it could read as a saving.
 
 ## Run locally
 
@@ -30,7 +32,7 @@ python3 -m http.server 8000
 - **Waitlist form.** Nothing is sent. `assets/main.js` validates the form, logs the data to the console and shows the "check your inbox / invite your neighbours" panel. Replace the `TODO` with the real service (double opt-in, EU storage).
 - **Privacy notice and imprint.** The footer and consent links point to `#adatvedelem` / `#impresszum` (`#privacy` / `#imprint` in English). They are required before collecting emails.
 - **Fonts.** Loaded from Google Fonts. Self-host them before launch to avoid sending visitor IPs to Google (GDPR).
-- **Figures.** All numbers come from the brief's approved claims table. Recheck 2,300 HUF per item type and the 69,184 HUF limit against a real checkout after 1 November 2026.
+- **Figures.** Numbers come from the brief's approved claims table, except the illustrative joiner example (Dóra's / Daisy's organizers and the 1,490 HUF phone case), which uses the same 2,305 HUF per item type and 50/50–70/30 splits. Recheck 2,300 HUF per item type against a real checkout after 1 November 2026.
 
 ## Notes
 
