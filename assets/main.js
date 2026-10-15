@@ -1,7 +1,7 @@
 /*
  * Waitlist form – placeholder behaviour only.
  * Nothing is sent anywhere yet: on a valid submit the form is swapped for the
- * "check your inbox / invite your neighbours" panel. Replace the TODO below
+ * "check your inbox / share in your area" panel. Replace the TODO below
  * with the real waitlist integration (double opt-in, EU data storage).
  */
 (function () {
