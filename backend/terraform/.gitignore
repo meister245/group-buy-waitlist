@@ -1,0 +1,5 @@
+# Terraform working files, build output and local state (never commit state)
+.terraform/
+*.tfstate
+*.tfstate.*
+build/

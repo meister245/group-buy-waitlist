@@ -13,9 +13,6 @@
   <meta property="og:description" content="Order from Temu with people in your area and pay import charges only once for shared item types. Join the waitlist.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -76,6 +73,14 @@
     <a class="btn btn-small header-cta" href="#waitlist">Join waitlist</a>
   </div>
 </header>
+
+<div class="notice" role="status" hidden data-notice
+     data-confirmed="You're on the waitlist! We'll email you as soon as we launch."
+     data-expired="This confirmation link has expired or is no longer valid. Please sign up again."
+     data-unsubscribed="You've left the waitlist and your details have been deleted.">
+  <p data-notice-text></p>
+  <button type="button" data-notice-close aria-label="Close">×</button>
+</div>
 
 <main id="main">
 
@@ -574,7 +579,7 @@
         </div>
 
         <div class="form-wrap" data-form-wrap>
-          <form class="form" data-waitlist-form novalidate>
+          <form class="form" data-waitlist-form data-endpoint="/api/signup" novalidate>
             <div class="field">
               <label for="email">Email</label>
               <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
@@ -604,14 +609,20 @@
               </div>
             </fieldset>
 
+            <div class="hp" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+
             <label class="consent">
               <input type="checkbox" name="consent" required>
-              <span>I agree to receive emails about the launch. <a href="#privacy">Privacy notice</a></span>
+              <span>I agree to receive emails about the launch. <a href="privacy/" target="_blank" rel="noopener">Privacy notice</a></span>
             </label>
+
+            <p class="form-error" role="alert" hidden data-error>Something went wrong and you are not signed up yet. Please try again in a few minutes.</p>
 
             <button class="btn btn-block" type="submit">Join the waitlist <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
 
-            <p class="fine">We'll send a confirmation email; only confirmed addresses count. Your data is stored in the EU, used only for launch updates, and deleted if we do not launch within 12 months. One-click unsubscribe.</p>
+            <p class="fine">We'll send a confirmation email; only confirmed addresses count. Your data is stored in the EU, used only for launch updates, and deleted 12 months after you sign up at the latest. One-click unsubscribe.</p>
           </form>
 
           <div class="success" role="status" aria-live="polite" tabindex="-1" data-success>
@@ -644,8 +655,8 @@
         <a href="#how-it-works">How it works</a>
         <a href="#example">Savings</a>
         <a href="#faq">FAQ</a>
-        <a href="#privacy" id="privacy">Privacy notice</a>
-        <a href="#imprint" id="imprint">Imprint</a>
+        <a href="privacy/">Privacy notice</a>
+        <a href="imprint/">Imprint</a>
         <a href="../" lang="hu" hreflang="hu">Magyar</a>
       </nav>
     </div>

@@ -1,0 +1,42 @@
+name: Deploy site to S3 and CloudFront
+
+on:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # lets the job get short-lived AWS credentials through OIDC
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
+
+# Repository variables come from the Terraform output "github_variables".
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir _site
+          cp -r index.html en assets adatvedelem impresszum _site/
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: eu-central-1
+
+      - name: Upload to S3
+        run: |
+          aws s3 sync _site "s3://${{ vars.SITE_BUCKET }}" --delete
+          # Make sure fonts get the right type, whatever the runner's MIME table says.
+          aws s3 cp _site/assets/fonts "s3://${{ vars.SITE_BUCKET }}/assets/fonts" --recursive \
+            --exclude "*" --include "*.woff2" --content-type font/woff2
+
+      - name: Refresh CloudFront
+        run: aws cloudfront create-invalidation --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" --paths "/*"

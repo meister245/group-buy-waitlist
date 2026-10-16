@@ -13,9 +13,6 @@
   <meta property="og:description" content="Rendelj a környékeden élőkkel a Temuról, és a közös terméktípusok után csak egyszer fizettek importdíjat. Iratkozz fel a várólistára.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="hu_HU">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -76,6 +73,14 @@
     <a class="btn btn-small header-cta" href="#varolista">Feliratkozom</a>
   </div>
 </header>
+
+<div class="notice" role="status" hidden data-notice
+     data-confirmed="Fent vagy a várólistán! E-mailben szólunk, amint elindulunk."
+     data-expired="Ez a megerősítő link lejárt vagy érvénytelen. Kérjük, iratkozz fel újra."
+     data-unsubscribed="Leiratkoztál a várólistáról, az adataidat töröltük.">
+  <p data-notice-text></p>
+  <button type="button" data-notice-close aria-label="Bezárás">×</button>
+</div>
 
 <main id="main">
 
@@ -574,7 +579,7 @@
         </div>
 
         <div class="form-wrap" data-form-wrap>
-          <form class="form" data-waitlist-form novalidate>
+          <form class="form" data-waitlist-form data-endpoint="/api/signup" novalidate>
             <div class="field">
               <label for="email">E-mail-cím</label>
               <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="nev@pelda.hu" required>
@@ -604,14 +609,20 @@
               </div>
             </fieldset>
 
+            <div class="hp" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+
             <label class="consent">
               <input type="checkbox" name="consent" required>
-              <span>Hozzájárulok, hogy e-mailt kapjak az indulásról. <a href="#adatvedelem">Adatvédelmi tájékoztató</a></span>
+              <span>Hozzájárulok, hogy e-mailt kapjak az indulásról. <a href="adatvedelem/" target="_blank" rel="noopener">Adatvédelmi tájékoztató</a></span>
             </label>
+
+            <p class="form-error" role="alert" hidden data-error>Valami hiba történt, a feliratkozás nem sikerült. Kérjük, próbáld újra pár perc múlva.</p>
 
             <button class="btn btn-block" type="submit">Feliratkozom a várólistára <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
 
-            <p class="fine">Megerősítő e-mailt küldünk; csak a megerősített címek számítanak. Az adataidat az EU-ban tároljuk, csak az indulással kapcsolatos hírekhez használjuk, és töröljük, ha 12 hónapon belül nem indulunk el. Egy kattintással leiratkozhatsz.</p>
+            <p class="fine">Megerősítő e-mailt küldünk; csak a megerősített címek számítanak. Az adataidat az EU-ban tároljuk, csak az indulással kapcsolatos hírekhez használjuk, és legkésőbb 12 hónappal a feliratkozásod után töröljük. Egy kattintással leiratkozhatsz.</p>
           </form>
 
           <div class="success" role="status" aria-live="polite" tabindex="-1" data-success>
@@ -644,8 +655,8 @@
         <a href="#hogyan">Hogyan működik</a>
         <a href="#pelda">Spórolás</a>
         <a href="#gyik">GYIK</a>
-        <a href="#adatvedelem" id="adatvedelem">Adatvédelmi tájékoztató</a>
-        <a href="#impresszum" id="impresszum">Impresszum</a>
+        <a href="adatvedelem/">Adatvédelmi tájékoztató</a>
+        <a href="impresszum/">Impresszum</a>
         <a href="en/" lang="en" hreflang="en">English</a>
       </nav>
     </div>
